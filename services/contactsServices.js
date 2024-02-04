@@ -2,12 +2,9 @@ import fs from 'fs/promises';
 import path from 'path';
 import { nanoid } from 'nanoid';
 
-const currentFilePath = new URL(import.meta.url).pathname;
-const dataPath = path.join(path.dirname(currentFilePath),'..', 'db', 'contacts.json');
-console.log(currentFilePath);
-console.log(dataPath);
+const __dirname = import.meta.dirname;
+const dataPath = path.join(__dirname,'..', 'db', 'contacts.json');
 export const getAll = async () => {
-  // console.log("privet");
   const data = await fs.readFile(dataPath);
   return JSON.parse(data);
 };
