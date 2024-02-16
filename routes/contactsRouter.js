@@ -6,7 +6,7 @@ import {
   createContact,
   updateContact,
   updateFavorite,
-} from '../controllers/contactsControllers.js';
+} from '../controllers/contacts/index.js';
 
 import validateBody from '../helpers/validateBody.js';
 import {
