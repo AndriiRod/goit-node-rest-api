@@ -1,9 +1,14 @@
 import Contact from '../../models/contact.js';
 
 const getAllContacts = async (req, res, next) => {
-  console.log('work');
   try {
-    const result = await Contact.find();
+    const { _id: owner } = req.user;
+    const { page = 1, limit = 5 } = req.query;
+    const skip = (page - 1) * limit;
+    const result = await Contact.find({ owner }, '', { skip, limit }).populate(
+      'owner',
+      'name'
+    );
     res.json(result);
   } catch (e) {
     next(e);
