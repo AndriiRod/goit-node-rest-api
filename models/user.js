@@ -6,24 +6,23 @@ const emailRegexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const userSchema = new Schema(
   {
-    name: {
+    password: {
       type: String,
-      required: true,
+      required: [true, 'Password is required'],
     },
     email: {
       type: String,
-      match: emailRegexp,
-      required: true,
+      required: [true, 'Email is required'],
       unique: true,
     },
-    password: {
+    subscription: {
       type: String,
-      minLength: 6,
-      required: true,
+      enum: ['starter', 'pro', 'business'],
+      default: 'starter',
     },
     token: {
       type: String,
-      default: '',
+      default: null,
     },
   },
   { versionKey: false, timestamps: true }

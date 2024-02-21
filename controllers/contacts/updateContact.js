@@ -1,5 +1,5 @@
-import Contact from '../../models/contact.js';
-import HttpError from '../../helpers/HttpError.js';
+import { Contact } from '../../models/index.js';
+import { HttpError } from '../../helpers/index.js';
 
 const updateContact = async (req, res, next) => {
   try {

@@ -1,13 +1,11 @@
-import User from '../../models/user.js';
+import { User } from '../../models/index.js';
 
 const logout = async (req, res, next) => {
   try {
     const { _id } = req.user;
     await User.findByIdAndUpdate(_id, { token: '' });
 
-    res.json({
-      message: 'Logout success',
-    });
+    res.status(204).end();
   } catch (e) {
     next(e);
   }

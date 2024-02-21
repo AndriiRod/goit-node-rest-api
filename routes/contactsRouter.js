@@ -8,23 +8,25 @@ import {
   updateFavorite,
 } from '../controllers/contacts/index.js';
 
-import validateBody from '../helpers/validateBody.js';
+import {
+  validateBody,
+  isValidateId,
+  authenticate,
+} from '../middlewares/index.js';
+
 import {
   createContactSchema,
   updateContactSchema,
   updateFavoriteSchema,
-} from '../schemas/contactsSchemas.js';
-import isValidId from '../helpers/isValidateId.js';
-
-import authenticate from '../middlewares/authenticate.js';
+} from '../models/index.js';
 
 const contactsRouter = express.Router();
 
 contactsRouter.get('/', authenticate, getAllContacts);
 
-contactsRouter.get('/:id', authenticate, isValidId, getOneContact);
+contactsRouter.get('/:id', authenticate, isValidateId, getOneContact);
 
-contactsRouter.delete('/:id', authenticate, isValidId, deleteContact);
+contactsRouter.delete('/:id', authenticate, isValidateId, deleteContact);
 
 contactsRouter.post(
   '/',
@@ -36,7 +38,7 @@ contactsRouter.post(
 contactsRouter.put(
   '/:id',
   authenticate,
-  isValidId,
+  isValidateId,
   validateBody(updateContactSchema),
   updateContact
 );
@@ -44,7 +46,7 @@ contactsRouter.put(
 contactsRouter.patch(
   '/:id/favorite',
   authenticate,
-  isValidId,
+  isValidateId,
   validateBody(updateFavoriteSchema),
   updateFavorite
 );
