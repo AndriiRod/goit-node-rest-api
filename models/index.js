@@ -3,7 +3,11 @@ import Contact, {
   updateFavoriteSchema,
   updateContactSchema,
 } from './contact.js';
-import User, { loginSchema, registerSchema } from './user.js';
+import User, {
+  loginSchema,
+  registerSchema,
+  updateUserSubSchema,
+} from './user.js';
 
 export {
   Contact,
@@ -13,4 +17,5 @@ export {
   createContactSchema,
   updateContactSchema,
   updateFavoriteSchema,
+  updateUserSubSchema,
 };
