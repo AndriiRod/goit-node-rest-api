@@ -3,5 +3,6 @@ import login from './login.js';
 import logout from './logout.js';
 import register from './register.js';
 import updateUserSub from './updateUserSub.js';
+import updateAvatar from './updateAvatar.js';
 
-export { getCurrent, login, logout, register, updateUserSub };
+export { getCurrent, login, logout, register, updateUserSub, updateAvatar };

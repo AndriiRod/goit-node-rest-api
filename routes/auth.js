@@ -3,6 +3,7 @@ import {
   validateBody,
   authenticate,
   isValidateId,
+  upload,
 } from '../middlewares/index.js';
 import {
   loginSchema,
@@ -15,6 +16,7 @@ import {
   login,
   getCurrent,
   updateUserSub,
+  updateAvatar,
 } from '../controllers/auth/index.js';
 
 const router = express.Router();
@@ -29,4 +31,5 @@ router.patch(
   validateBody(updateUserSubSchema),
   updateUserSub
 );
+router.patch('/avatars', authenticate, upload.single('avatar'), updateAvatar);
 export default router;
