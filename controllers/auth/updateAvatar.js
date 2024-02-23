@@ -15,10 +15,12 @@ const updateAvatar = async (req, res, next) => {
     jimp
       .read(tmpUpload)
       .then(image => {
+        fs.unlink(tmpUpload);
         return image.resize(250, 250).write(resultUpload);
       })
       .catch(e => console.log(e));
     // await fs.rename(tmpUpload, resultUpload);
+
     const avatarURL = path.join('avatars', filename);
     await User.findByIdAndUpdate(_id, { avatarURL });
     res.json({
