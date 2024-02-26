@@ -7,6 +7,7 @@ import User, {
   loginSchema,
   registerSchema,
   updateUserSubSchema,
+  emailSchema,
 } from './user.js';
 
 export {
@@ -18,4 +19,5 @@ export {
   updateContactSchema,
   updateFavoriteSchema,
   updateUserSubSchema,
+  emailSchema,
 };

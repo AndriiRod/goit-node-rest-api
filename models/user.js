@@ -27,6 +27,14 @@ const userSchema = new Schema(
       type: String,
       default: null,
     },
+    verify: {
+      type: Boolean,
+      default: false,
+    },
+    verificationCode: {
+      type: String,
+      default: '',
+    },
   },
   { versionKey: false, timestamps: true }
 );
@@ -45,6 +53,10 @@ export const loginSchema = Joi.object({
 
 export const updateUserSubSchema = Joi.object({
   subscription: Joi.string().valid('starter', 'pro', 'business'),
+});
+
+export const emailSchema = Joi.object({
+  email: Joi.string().pattern(emailRegexp).required(),
 });
 
 const User = model('user', userSchema);
