@@ -2,13 +2,13 @@ import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const { PASSWORD } = process.env;
+const { PASSWORD, PASS } = process.env;
 
 const nodemailerConfig = {
   service: 'gmail',
   auth: {
     user: 'dron24box@gmail.com',
-    pass: 'reprrvuhakecnggf',
+    pass: PASS,
   },
 };
 

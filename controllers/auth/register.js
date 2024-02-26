@@ -1,10 +1,10 @@
 import { User } from '../../models/index.js';
-import { HttpError } from '../../helpers/index.js';
+import { HttpError, sendMail } from '../../helpers/index.js';
 import bcrypt from 'bcrypt';
 import gravatar from 'gravatar';
 import { nanoid } from 'nanoid';
 import dotenv from 'dotenv';
-import { sendMail } from './index.js';
+
 dotenv.config();
 
 const { BASE_URL } = process.env;

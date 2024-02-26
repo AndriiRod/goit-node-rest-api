@@ -1,6 +1,5 @@
 import { User } from '../../models/index.js';
-import { HttpError } from '../../helpers/index.js';
-import { sendMail } from './index.js';
+import { HttpError, sendMail } from '../../helpers/index.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
